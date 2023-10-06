@@ -51,7 +51,6 @@
 }
 .item-stage,
 .item-btn{
-    line-height: 60px;
     text-align: center
 }
 
@@ -64,8 +63,9 @@ table thead th:nth-child(1){
 table thead th:nth-child(2){
     width: 60%;
 }
-
-
-html, body, main {
-    height : 100vh;
+.tab-pane img{
+    width: 100%;
+}
+.nav-link{
+    font-size: 12px;
 }

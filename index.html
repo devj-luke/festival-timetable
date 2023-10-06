@@ -1,6 +1,12 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="kr">
 <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>TIME TABLE</title>
     <script src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -77,56 +83,45 @@
         <h4><span id="current-time"></span></h4>
     </div>
 </div>
-<table class="table table-bordered">
-    <thead class="thead-dark">
-    <tr>
-        <th class="col text-center">
-            스테이지
-        </th>
-        <th class="col">
-            공연
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="item">
-        <td class="item-stage">
-            <b>SAMROCK</b>
-        </td>
-        <td class="item-info">
-            12:30 ~ 13:00 (30')<br>
-            <a href="http://naver.com">SKIPJACK</a><br>
-        </td>
-    </tr>
-    <tr class="item">
-        <td class="item-stage">
-            <b>GREEN</b>
-        </td>
-        <td class="item-info">
-            12:00 ~ 12:30 (30')<br>
-            <a href="http://naver.com">밴드바투</a><br>
-        </td>
-    </tr>
-    <tr class="item">
-        <td class="item-stage">
-            <b>RIVER</b>
-        </td>
-        <td class="item-info">
-            11:30 ~ 12:00 (30')<br>
-            <a href="http://">L8ching</a><br>
-        </td>
 
-    </tr>
-    <tr class="item">
-        <td class="item-stage">
-            <b>HIDDEN</b>
-        </td>
-        <td class="item-info">
-            12:30 ~ 13:00 (30')<br>
-            <a href="">이무이(2EE MOOEE)</a><br>
-        </td>
+<div class="timetable">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="SAMROCK-tab" data-toggle="tab" data-target="#SAMROCK" type="button" role="tab"
+                    aria-controls="home" aria-selected="true">SAMROCK
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="GREEN-tab" data-toggle="tab" data-target="#GREEN" type="button" role="tab"
+                    aria-controls="profile" aria-selected="false">GREEN
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="RIVER-tab" data-toggle="tab" data-target="#RIVER" type="button" role="tab"
+                    aria-controls="profile" aria-selected="false">RIVER
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="HIDDEN-tab" data-toggle="tab" data-target="#HIDDEN" type="button" role="tab"
+                    aria-controls="profile" aria-selected="false">HIDDEN
+            </button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="SAMROCK" role="tabpanel" aria-labelledby="SAMROCK-tab">
+            <img src="assets/img/samrock.jpg" alt="삼락스테이지">
+        </div>
+        <div class="tab-pane fade" id="GREEN" role="tabpanel" aria-labelledby="GREEN-tab">
+            <img src="assets/img/green.jpg" alt="삼락스테이지">
+        </div>
+        <div class="tab-pane fade" id="RIVER" role="tabpanel" aria-labelledby="RIVER-tab">
+            <img src="assets/img/river.jpg" alt="삼락스테이지">
+        </div>
+        <div class="tab-pane fade" id="HIDDEN" role="tabpanel" aria-labelledby="HIDDEN-tab">
+            <img src="assets/img/green.jpg" alt="삼락스테이지">
+        </div>
+    </div>
 
-    </tbody>
-</table>
+</div>
 </body>
 </html>
