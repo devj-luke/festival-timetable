@@ -1,153 +1,155 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>1행 4열 그리드</title>
-    <style>
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-        }
+    <title>TIME TABLE</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+            integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        function updateTime() {
+            const currentTime = new Date();
+            const hours = currentTime.getHours().toString().padStart(2, '0');
+            const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+            const seconds = currentTime.getSeconds().toString().padStart(2, '0');
 
-        .grid-item {
-            padding: 20px;
-            border: 1px solid #000;
-            text-align: center;
-        }
+            const formattedTime = `${hours}:${minutes}:${seconds}`;
+            document.getElementById("current-time").textContent = formattedTime;
 
-        .info{
-            text-align: left;
-            background-color: #C177FE;
-            margin-bottom: 10px;
-            height: 90px;
+            // 다음 프레임을 요청하여 시간 업데이트
+            requestAnimationFrame(updateTime);
         }
-        .time{
-        }@
-        .guest{
-            font-size: 1.5rem;
+        window.onload = function(){
+            // 초기 로딩 시에도 시간을 표시
+            updateTime();
         }
-    </style>
+    </script>
 </head>
 <body>
-<div class="grid-container">
-    <div class="grid-item">
-        <div>
-            12시
+<!-- 팝업 및 불투명한 배경 -->
+<div class="overlay" id="popupOverlay">
+    <div class="popup">
+        <span class="close-button" id="closePopup">&times;</span>
+        <div class="grid-item">
+            <div>
+                12시
+            </div>
+            <div class="info">
+                <div class="time">12:30 ~ 13:00 (30')</div>
+                <div class="guest">SKIPJACK</div>
+            </div>
+            <div>
+                13시
+            </div>
+            <div class="info">
+                <div class="time">13:30 ~ 14:00 (30')</div>
+                <div class="guest">터치드(TOUCHED)</div>
+            </div>
+            <div>
+                14시
+            </div>
+            <div class="info">
+                <div class="time">13:30 ~ 15:20 (40')</div>
+                <div class="guest">세이수미</div>
+            </div>
         </div>
-        <div class="info">
-            <div class="time">12:30 ~ 13:00 (30')</div>
-            <div class="guest">SKIPJACK</div>
-        </div>
-        <div>
-            13시
-        </div>
-        <div class="info">
-            <div class="time">13:30 ~ 14:00 (30')</div>
-            <div class="guest">터치드(TOUCHED)</div>
-        </div>
-        <div>
-            14시
-        </div>
-        <div class="info">
-            <div class="time">13:30 ~ 15:20 (40')</div>
-            <div class="guest">세이수미</div>
-        </div>
-
     </div>
-    <div class="grid-item">
-        <div>
-            12시
-        </div>
-        <div class="info">
-            <div class="time">12:30 ~ 13:00 (30')</div>
-            <div class="guest">SKIPJACK</div>
-        </div>
-        <div>
-            13시
-        </div>
-        <div class="info">
-            <div class="time">13:30 ~ 14:00 (30')</div>
-            <div class="guest">터치드(TOUCHED)</div>
-        </div>
-        <div>
-            14시
-        </div>
-        <div class="info">
-            <div class="time">13:30 ~ 15:20 (40')</div>
-            <div class="guest">세이수미</div>
-        </div>
+</div>
 
-        <div>
-            12시
-        </div>
-        <div class="info">
-            <div class="time">12:30 ~ 13:00 (30')</div>
-            <div class="guest">SKIPJACK</div>
-        </div>
-        <div>
-            13시
-        </div>
-        <div class="info">
-            <div class="time">13:30 ~ 14:00 (30')</div>
-            <div class="guest">터치드(TOUCHED)</div>
-        </div>
-        <div>
-            14시
-        </div>
-        <div class="info">
-            <div class="time">13:30 ~ 15:20 (40')</div>
-            <div class="guest">세이수미</div>
-        </div>
-
+<div class="container d-flex justify-content-center align-items-center flex-column">
+    <div class="title">
+        TIME TABLE
     </div>
-    <div class="grid-item">
-        <div>
-            12시
-        </div>
-        <div class="info">
-            <div class="time">12:30 ~ 13:00 (30')</div>
-            <div class="guest">SKIPJACK</div>
-        </div>
-        <div>
-            13시
-        </div>
-        <div class="info">
-            <div class="time">13:30 ~ 14:00 (30')</div>
-            <div class="guest">터치드(TOUCHED)</div>
-        </div>
-        <div>
-            14시
-        </div>
-        <div class="info">
-            <div class="time">13:30 ~ 15:20 (40')</div>
-            <div class="guest">세이수미</div>
-        </div>
-
+    <div>
+        <h4><span id="current-time"></span></h4>
     </div>
-    <div class="grid-item">
-        <div>
-            12시
-        </div>
-        <div class="info">
-            <div class="time">12:30 ~ 13:00 (30')</div>
-            <div class="guest">SKIPJACK</div>
-        </div>
-        <div>
-            13시
-        </div>
-        <div class="info">
-            <div class="time">13:30 ~ 14:00 (30')</div>
-            <div class="guest">터치드(TOUCHED)</div>
-        </div>
-        <div>
-            14시
-        </div>
-        <div class="info">
-            <div class="time">13:30 ~ 15:20 (40')</div>
-            <div class="guest">세이수미</div>
-        </div>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th class="col text-center">
+                    스테이지
+                </th>
+                <th class="col">
+                    공연
+                </th>
+                <th class="col text-center">
+                   시간표
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="item">
+                <td class="item-stage">
+                    <b>SAMROCK</b>
+                </td>
+                <td class="item-info">
+                    12:30 ~ 13:00 (30')<br>
+                    <a href="http://naver.com">SKIPJACK</a><br>
+                </td>
+                <td class="item-btn">
+                    <button class="btn btn-dark">
+                        <i class="far fa-clock"></i>
+                    </button>
+                </td>
+            </tr>
+            <tr class="item">
+                <td class="item-stage">
+                    <b>GREEN</b>
+                </td>
+                <td class="item-info">
+                    12:00 ~ 12:30 (30')<br>
+                    <a href="http://naver.com">밴드바투</a><br>
+                </td>
+                <td class="item-btn">
+                    <button class="btn btn-dark">
+                        <i class="far fa-clock"></i>
+                    </button>
+                </td>
+            </tr>
+            <tr class="item">
+                <td class="item-stage">
+                    <b>RIVER</b>
+                </td>
+                <td class="item-info">
+                    11:30 ~ 12:00 (30')<br>
+                    <a href="http://">L8ching</a><br>
+                </td>
+                <td class="item-btn">
+                    <button class="btn btn-dark">
+                        <i class="far fa-clock"></i>
+                    </button>
+                </td>
+            </tr>
+            <tr class="item">
+                <td class="item-stage">
+                    <b>HIDDEN</b>
+                </td>
+                <td class="item-info">
+                    12:30 ~ 13:00 (30')<br>
+                    <a href="">이무이(2EE MOOEE)</a><br>
+                </td>
+                <td class="item-btn">
+                    <button class="btn btn-dark">
+                        <i class="far fa-clock"></i>
+                    </button>
+                </td>
+            </tr>
 
-    </div>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
